@@ -390,23 +390,16 @@ function MemoriesContent({ initialMemories, initialTotalCount }: MemoriesClientP
           {displayedMemories.length > 0 && (
             <button
               onClick={handleFlipAll}
-              className="hidden xl:block relative w-[48px] h-[26px] rounded-full transition-colors duration-300 flex-shrink-0"
-              style={{
-                backgroundColor: allFlipped ? '#4ade80' : '#b0a89e',
-                boxShadow: allFlipped
-                  ? 'inset 0 2px 4px rgba(0,0,0,0.15), 0 1px 2px rgba(74,222,128,0.3)'
-                  : 'inset 0 2px 4px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.08)',
-              }}
+              className="hidden xl:flex items-center relative w-[34px] h-[20px] cursor-pointer flex-shrink-0"
               aria-label={allFlipped ? 'Hide all cards' : 'Reveal all cards'}
             >
+              {/* Thin Track */}
+              <div className="absolute left-0 right-0 top-[9px] h-[2px] rounded-full transition-colors duration-300 bg-blue-500" />
+              {/* Knob */}
               <motion.span
-                className="absolute top-[3px] w-[20px] h-[20px] rounded-full"
-                style={{
-                  background: 'linear-gradient(145deg, #ffffff, #e8e8e8)',
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.9)',
-                }}
-                animate={{ left: allFlipped ? 'calc(100% - 23px)' : '3px' }}
-                transition={{ type: 'spring', stiffness: 500, damping: 28 }}
+                className="absolute top-[2px] w-[16px] h-[16px] rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.4)] transition-colors duration-300 bg-blue-500"
+                animate={{ left: allFlipped ? 'calc(100% - 16px)' : '0px' }}
+                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
               />
             </button>
           )}
